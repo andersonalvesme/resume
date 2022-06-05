@@ -1,0 +1,24 @@
+name: deploy
+on:
+    workflow_dispatch:
+    push:
+        branches: [ master ]
+jobs:
+    main:
+        runs-on: ubuntu-latest
+        steps:
+            - name: deploy-commands
+              uses: fifsky/ssh-action@master
+              with:
+                  command: |
+                      cat /dev/null > ~/.ssh/known_hosts
+                      ssh-keyscan github.com >> ~/.ssh/known_hosts
+                      [ ! -d "/home/ubuntu/resume" ] && git clone git@github.com:andersonalvesme/resume.git
+                      cd resume
+                      git pull origin master
+                      cp ./.github/deploy.sh .
+                      chmod +x deploy.sh
+                      ./deploy.sh
+                  host: ${{ secrets.REMOTE_HOST }}
+                  user: ${{ secrets.REMOTE_USER }}
+                  key: ${{ secrets.REMOTE_KEY }}
