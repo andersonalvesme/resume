@@ -727,6 +727,10 @@
                                 <li class="list-inline-item d-block mb-1"><span
                                         class="badge bg-secondary badge-pill d-block">Bootstrap</span></li>
                                 <li class="list-inline-item d-block mb-1"><span
+                                        class="badge bg-secondary badge-pill d-block">npm</span></li>
+                                <li class="list-inline-item d-block mb-1"><span
+                                        class="badge bg-secondary badge-pill d-block">Gulp</span></li>
+                                <li class="list-inline-item d-block mb-1"><span
                                         class="badge bg-secondary badge-pill d-block">MySQL</span></li>
                                 <li class="list-inline-item d-block mb-1"><span
                                         class="badge bg-secondary badge-pill d-block">Docker</span></li>
@@ -755,10 +759,7 @@
 <script>
     function copyText(elementId) {
         var copyText = document.getElementById(elementId);
-        console.log(copyText);
-        // copyText.select();
-        // navigator.clipboard.writeText(copyText.value);
-        // alert("Copied the text: " + copyText.value);
+        navigator.clipboard.writeText(copyText.textContent);
     }
 </script>
 
