@@ -1,0 +1,9 @@
+version: '3'
+services:
+  resume:
+    image: trafex/php-nginx:latest
+    container_name: resume
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "8081:8080"
