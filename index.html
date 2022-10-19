@@ -749,10 +749,10 @@
         const eMonth = (eDate.length > 1 ? eDate[0] : new Date().getMonth());
         let years = 0;
         let months = 1;
-
-        months += ((eYear - sDate[1]) * 12) - sDate[0] + eMonth;
-
+        
+        months += ((eYear - sDate[1]) * 12) - sDate[0] + parseInt(eMonth);
         years = Math.floor(months / 12);
+
         months = months % 12;
 
         const textYears = years >= 1 ? (years + ' year' + (years > 1 ? 's' : '')) : '';
